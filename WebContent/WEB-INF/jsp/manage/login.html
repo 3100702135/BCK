@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <title> - 登录</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link href="css_login/bootstrap.min.css" rel="stylesheet">
+    <link href="css_login/font-awesome.css?v=4.4.0" rel="stylesheet">
+    <link href="css_login/animate.css" rel="stylesheet">
+    <link href="css_login/style.css" rel="stylesheet">
+    <link href="css_login/login.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <meta http-equiv="refresh" content="0;ie.html" />
+    <![endif]-->
+    <script>
+        if (window.top !== window.self) {
+            window.top.location = window.location;
+        }
+    </script>
+
+</head>
+
+<body class="signin">
+    <div class="signinpanel">
+        <div class="row">
+		    <div class="col-sm-8 leftsigninpanel">
+            </div>
+            <div class="col-sm-4">
+                <form method="post" action="index.html">
+                    <h4 class="no-margins">登录：</h4>
+                    <p class="m-t-md">欢迎登录彩币娱乐城！</p>
+                    <input id="username" type="text" class="form-control uname" placeholder="用户名" />
+                    <input id="password" type="password" class="form-control pword m-b" placeholder="密码" />
+                    <a href="">忘记密码了？</a>
+                    <button class="btn btn-success btn-block" onclick="btnLogin()">登录</button>
+                </form>
+            </div>
+        </div>
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; hAdmin
+            </div>
+        </div>
+    </div>
+</body>
+<!-- <script src="js/login/login.js" type="text/javascript"></script> -->
+<script>
+function btnLogin(){
+		var username = $('#username').val();
+		var password = $('#password').val();
+		$.ajax({url:"/user/login",
+				data:{
+					username:username,
+					password: password
+				},
+				success:function(response, status){
+					var result = response;
+					if(result.code != "100003" && result.code !="100004" && result.code !="100005"&&result.code!="100009"){
+						window.location.href="login.html";
+					}else if(result.code =="100003"){
+						alert("用户名或者密码错误!");
+					}else if(result.code =="100004") {
+						alert("该用户已离职,无法登陆!");
+					}else if(result.code =="100009") {
+						showModal("dialogDetail");
+					}else{
+						alert("该用户没有绑定角色信息,请联系管理员!");
+					}
+				},
+				type:"post",
+				dataType:"json"
+		});
+	}
+</script>
+</html>

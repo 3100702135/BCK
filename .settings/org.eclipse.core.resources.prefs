@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/web.xml=UTF-8
+encoding//src/com/common/util/Logger.java=UTF-8
+encoding//src/com/common/util/ResultJson.java=UTF-8
+encoding//src/com/common/util/UuidUtil.java=UTF-8
+encoding//src/com/system/controller/UserController.java=UTF-8
+encoding//src/com/system/dao/DAO.java=UTF-8
+encoding//src/com/system/dao/DaoSupport.java=UTF-8
+encoding//src/com/system/entity/User.java=UTF-8
+encoding//src/com/system/service/UserService.java=UTF-8
