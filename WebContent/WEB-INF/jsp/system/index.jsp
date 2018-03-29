@@ -264,7 +264,7 @@
 							<div class="form-group">
 								<label for="contact-message" class="control-label sr-only">留言内容</label>
 								<div class="col-sm-12">
-									<textarea class="form-control" id="contact-message" name="contact-message" rows="5" cols="30" placeholder="留言内容 (必填)" required></textarea>
+									<textarea class="form-control" id="contact-message" name="contact-message" rows="5" cols="30" placeholder="留言内容 (我们将第一时间与您取得联系)" required></textarea>
 								</div>
 							</div>
 							<div class="form-group">
@@ -320,23 +320,23 @@
                      <form id="register_form" class="form-group" action="">
                              <div class="form-group">
                                  <label for="">用户名</label>
-                                 <input id="userName" name="userName" class="form-control" type="text" placeholder="6-15位字母或数字">
+                                 <input id="userName" name="userName" class="form-control" type="text" placeholder="6-15位字母或数字" required>
                              </div>
                              <div class="form-group">
                                  <label for="">密码</label>
-                                 <input id="passWord" name="passWord" class="form-control" type="password" placeholder="至少6位字母或数字">
+                                 <input id="passWord" name="passWord" class="form-control" type="password" placeholder="至少6位字母或数字" required>
                              </div>
                              <div class="form-group">
                                  <label for="">再次输入密码</label>
-                                 <input id="passWordCopy" class="form-control" type="password" placeholder="至少6位字母或数字">
+                                 <input id="passWordCopy" class="form-control" type="password" placeholder="至少6位字母或数字" required>
                              </div>
                              <div class="form-group">
                                  <label for="">邮箱</label>
-                                 <input id="mail" name="mail" class="form-control" type="email" placeholder="例如:123@123.com">
+                                 <input id="mail" name="mail" class="form-control" type="email" placeholder="例如:123@123.com" >
                              </div>
                             <div class="form-group">
                                  <label for="">手机号</label>
-                                 <input id="tel" name="tel" class="form-control" type="tel" placeholder="例如:187........">
+                                 <input id="tel" name="tel" class="form-control" type="tel" placeholder="例如:187........" required>
                              </div>
                              <div class="text-right">
                                  <button class="btn btn-primary" type="submit" onclick="register_submit()">提交</button>
@@ -364,11 +364,11 @@
                      <form id="login_form" name="login_form" class="form-group" action="">
                              <div class="form-group">
                                  <label for="">用户名</label>
-                                 <input name="userName" class="form-control" type="text" placeholder="用户名">
+                                 <input name="userName" class="form-control" type="text" placeholder="用户名" required>
                              </div>
                              <div class="form-group">
                                  <label for="">密码</label>
-                                 <input name="passWord" class="form-control" type="password" placeholder="密码">
+                                 <input name="passWord" class="form-control" type="password" placeholder="密码" required>
                              </div>
                              <div class="text-right">
                                  <button class="btn btn-primary" type="submit" onclick="login_submit()">登录</button>
@@ -388,6 +388,8 @@
 	<script src="<%=path%>/js/plugins/parallax/parallax.min.js"></script>
 	<script src="<%=path%>/js/plugins/owl-carousel/owl.carousel.min.js"></script>
 	<script src="<%=path%>/js/landee.js"></script>
+	<script src="<%=path%>/js/bootstrap/bootstrapValidator.js"></script>
+	<script src="<%=path%>/js/bootstrap/bootstrapValidator.min.js"></script>
 	<script src="<%=path%>/js/system/index.js"></script>
 	
 </body>
