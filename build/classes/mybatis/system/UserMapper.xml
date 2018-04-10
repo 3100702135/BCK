@@ -13,6 +13,7 @@
 		<result column="MAIL" property="mail"/>
 		<result column="IP" property="ip"/>
 		<result column="STATUS" property="status"/>
+		<result column="MAIL_STATUS" property="mailStatus"/>		
 		<result column="LAST_LOGIN_TIME" property="lastLoginTime"/>
 		<result column="LAST_MOTIFY_TIME" property="lastMotifyTime"/>
 	</resultMap>
@@ -21,16 +22,30 @@
 	<select id="getUserInfo" parameterType="com.system.entity.User" resultMap="userResultMap">
 		select * from USER 
 		where 1=1
-		<if test="userName !=null and passWord !=null ">
-		and  ( USER_NAME = #{userName} or TEL=#{userName} or MAIL=#{userName} ) and PASS_WORD=#{passWord}
-		</if>
 		<if test="userId !=null and userId >0">
 		and USER_ID = #{userId}
 		</if>
+		<if test="userName !=null  ">
+		and  ( USER_NAME = #{userName} or TEL=#{userName} or MAIL=#{userName} ) 
+		</if>
+		<if test="passWord !=null ">
+		and PASS_WORD=#{passWord}
+		</if>
+		limit 1
+	</select>
+	
+	<!-- 获取待发送邮件列表 -->
+	<select id="getUserList" parameterType="com.system.entity.User" resultMap="userResultMap">
+		select * from USER 
+		where 1=1 
+		<if test="userId !=null and userId >0">
+		and USER_ID = #{userId}
+		</if>
+		limit 10
 	</select>
 	
 <!-- 新增用户 -->
-	<insert id="saveUser" parameterType="com.system.entity.User" flushCache="false">
+	<insert id="saveUser" parameterType="com.system.entity.User" keyProperty="userId" flushCache="false">
 		insert into USER (
 			UUID            ,
 			USER_ID         ,
@@ -57,5 +72,41 @@
 			#{lastMotifyTime}
 		)
 	</insert>
+	
+	<!-- 更新用户信息 -->
+	<select id="editU" parameterType="com.system.entity.User" resultMap="userResultMap">
+		update USER set
+		<if test="userName !=null and userName !='' ">
+			USER_NAME = #{userName},
+		</if>
+		<if test="passWord !=null and passWord !='' ">
+			PASS_WORD = #{passWord},
+		</if>
+		<if test="roleId !=null and roleId !='' ">
+			ROLE_ID = #{roleId},
+		</if>
+		<if test="tel !=null and tel !='' ">
+			TEL = #{tel},
+		</if>
+		<if test="mail !=null and mail !='' ">
+			MAIL = #{mail},
+		</if>
+		<if test="ip !=null and ip !='' ">
+			IP = #{ip},
+		</if>
+		<if test="status !=null and status !='' ">
+			STATUS = #{status},
+		</if>
+		<if test="mailStatus !=null and mailStatus !='' ">
+			MAIL_STATUS = #{mailStatus},
+		</if>
+		<if test="lastLoginTime !=null and lastLoginTime !='' ">
+			LAST_LOGIN_TIME = #{lastLoginTime},
+		</if>
+		<if test="lastMotifyTime !=null and lastMotifyTime !='' ">
+			LAST_MOTIFY_TIME = #{lastMotifyTime},
+		</if>	
+		where UUID =	#{uuid}
+	</select>
 	
 </mapper>

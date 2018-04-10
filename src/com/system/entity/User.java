@@ -22,6 +22,7 @@ public class User{
 	private String mail;	//邮箱
 	private String ip;		//登录ip
 	private String status;		//用户状态
+	private String mailStatus;		//邮件发送状态
 	private Timestamp lastLoginTime;		//最后登录时间
 	private Timestamp lastMotifyTime;	//最后修改时间
 	
@@ -79,6 +80,12 @@ public class User{
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}	
+	public String getMailStatus() {
+		return mailStatus;
+	}
+	public void setMailStatus(String mailStatus) {
+		this.mailStatus = mailStatus;
 	}
 	public Timestamp getLastLoginTime() {
 		return lastLoginTime;

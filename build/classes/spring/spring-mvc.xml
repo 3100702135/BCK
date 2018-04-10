@@ -82,6 +82,7 @@
 	        <value>org.springframework.web.servlet.handler.SimpleMappingExceptionResolver</value>  
 	    </property>      
 	</bean>   
-
 	
+
+     <context:component-scan base-package="org.springframework.web.filter.DelegatingFilterProxy"/>
 </beans>

@@ -10,7 +10,9 @@
                         http://www.springframework.org/schema/mvc    
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">  
     <!-- 自动扫描 -->  
-    <context:component-scan base-package="com.system" />  
+    <context:component-scan base-package="com.system" />
+    <context:component-scan base-package="com.manage" />  
+    <context:component-scan base-package="com.common" />  
     <!-- 引入配置文件 -->  
     <bean id="propertyConfigurer"    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
         <property name="location" value="classpath:jdbc.properties" />  
@@ -35,7 +37,7 @@
         <constructor-arg index="0" ref="sqlSessionFactory" />  
     </bean>  
     
-    <bean id="dao" class="com.system.dao.DaoSupport">  
+    <bean id="daoSupport" class="com.system.dao.DaoSupport">  
     <property name="sqlSessionTemplate" ref="sqlSessionTemplate">  
     </property>  
     </bean> 
@@ -51,4 +53,8 @@
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource" ref="dataSource" />  
     </bean>  
+    
+	<mvc:interceptors>  
+    	<bean class="com.common.interceptor.LoginInterceptor" />  
+	</mvc:interceptors>
 </beans>

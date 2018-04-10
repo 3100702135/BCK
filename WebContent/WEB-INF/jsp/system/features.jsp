@@ -89,7 +89,7 @@
 				<div class="container">
 					<div class="row feature-item">
 						<div class="col-sm-12">
-							<img src="<%=path%>/images/grouwth.jpg" class="img-responsive" alt="Feature">
+							<img src="<%=path%>/images/grouwth.png" class="img-responsive" alt="Feature">
 						</div>
 					</div>
 					<div class="row feature-item">

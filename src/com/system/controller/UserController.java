@@ -1,12 +1,17 @@
 package com.system.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -26,26 +31,39 @@ public class UserController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping(value="/toLogin")
-	public ModelAndView toLogin(String userName,String passWord,HttpServletResponse response){
+	@ResponseBody
+	public Map<String,Object> toLogin(String userName,String passWord,HttpServletRequest request, HttpServletResponse response){
 		ResultJson result = new ResultJson();
+		HttpSession httpSession = request.getSession();
 		ModelAndView mv = this.getModelAndView();
 		User user = new User();
 		user.setUserName(userName);
 		user.setPassWord(passWord);
+		Map<String,Object> map = new HashMap<String, Object>();
+		if(userName==null || passWord==null)
+		{
+			map.put("result", "false");
+			return map;
+		}
 		try {
 			user=userService.getUserInfo(user);
-			if(user.getUserId()!=null)
+			if(user==null)
 			{
-				mv.setViewName("system/index");
-				mv.addObject("user", user);
-				mv.addObject("result", ResultJson.SUCCESS);
+				map.put("result", "false");
+			}
+			else if(user.getUserId()!=null && userName.equals(user.getUserName()) && passWord.equals(user.getPassWord()))
+			{
+				map.put("userName", user.getUserName());
+				map.put("userId", user.getUserId());
+				map.put("result", "success");
 			}
 		} catch (Exception e) {
-			mv.addObject("result", ResultJson.FAILED);
+			map.put("message", e.getMessage());
+			map.put("result", "false");
 			e.printStackTrace();
 		}
 
-		return mv; 
+		return map; 
 	}
 	
 	/**
@@ -53,7 +71,8 @@ public class UserController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping(value="/toRegister")
-	public ModelAndView toRegister(String userName,String passWord,String tel,String mail,String ip,HttpServletRequest request){
+	@ResponseBody
+	public  Map<String,Object> toRegister(String userName,String passWord,String tel,String mail,String ip,HttpServletRequest request, HttpServletResponse response){
 		User user = new User();
 		user.setUuid(get32UUID());
 		user.setUserName(userName);
@@ -62,18 +81,20 @@ public class UserController extends BaseController{
 		user.setMail(mail);
 		user.setIp(Tools.getIpAddress(request));
 		ModelAndView mv = this.getModelAndView();
+		Map<String,Object> map = new HashMap<String, Object>();
 		try {
-			userService.saveU(user);
-//			mv.setViewName("system/index");
-			mv.addObject("user", user);
-			mv.addObject("message", "注册成功！");
+			String userId=userService.saveU(user);
+			map.put("userName", user.getUserName());
+			map.put("userId", userId);
+			map.put("result", "success");
+
 		} catch (Exception e) {
-			mv.addObject("user", user);
-			mv.addObject("message", "注册失败!"+e.getMessage());
+			map.put("message", e.getMessage());
+			map.put("result", "false");
 			e.printStackTrace();
 		}
 
-		return mv; 
+		return map; 
 	}
 	
 	

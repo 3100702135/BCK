@@ -6,7 +6,7 @@
 %>
 <html lang="en">
 <head>
-	<title>Landee - Free Landing Page Template</title>
+	<title>BCK - Guard Every Kind Of Love</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Free landing page website template">
@@ -53,7 +53,7 @@
 						<li><a href="<%=path%>/system/exchange"> 社区交流</a></li>
 						<li><a href="<%=path%>/system/contact">联系我们</a></li>
 						<li id="registerOrLogin" ><a data-toggle="modal" data-target="#register" href=""><span class="glyphicon glyphicon-user"></span>登录/注册</a></li>						
-						<li class="dropdown"><a href="#" id="showUserName" class="dropdown-toggle" data-toggle="dropdown" >${user.userName} <b class="caret"></b>
+						<li class="dropdown"><a href="#" id="showUserName" class="dropdown-toggle" data-toggle="dropdown" >${param.userName} <b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu">
 						<li><a href="<%=path%>/#">个人中心</a></li>
@@ -89,7 +89,7 @@
 				<div class="container">
 					<div class="row feature-item">
 						<div class="col-sm-12">
-							<img src="<%=path%>/images/grouwth.jpg" class="img-responsive" alt="Feature">
+							<img src="<%=path%>/images/grouwth.png" class="img-responsive" alt="Feature">
 						</div>
 					</div>
 					<div class="row feature-item">
@@ -106,7 +106,6 @@
 			</div>
 		</section>
 		<!-- END FEATURES -->
-        <div class="copyrights">Collect from <a href="<%=path%>/http://www.cssmoban.com/" >企业网站模板</a></div>
         
 		<!-- TEAM -->
 		<section id="team">
@@ -364,11 +363,11 @@
                      <form id="login_form" name="login_form" class="form-group" action="">
                              <div class="form-group">
                                  <label for="">用户名</label>
-                                 <input name="userName" class="form-control" type="text" placeholder="用户名" required>
+                                 <input  name="userNameLogin" class="form-control" type="text" placeholder="用户名" required>
                              </div>
                              <div class="form-group">
                                  <label for="">密码</label>
-                                 <input name="passWord" class="form-control" type="password" placeholder="密码" required>
+                                 <input name="passWordLogin" class="form-control" type="password" placeholder="密码" required>
                              </div>
                              <div class="text-right">
                                  <button class="btn btn-primary" type="submit" onclick="login_submit()">登录</button>
@@ -394,5 +393,4 @@
 	
 </body>
 
-</html>
 </html>
