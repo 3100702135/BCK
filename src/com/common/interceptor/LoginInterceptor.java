@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,35 +26,51 @@ public class LoginInterceptor  implements HandlerInterceptor {
     @Override  
     public boolean preHandle(HttpServletRequest request,  
             HttpServletResponse response, Object handler) throws Exception {  
-        User loginUser = (User) request.getSession().getAttribute("loginUser");  
-          
-        if(loginUser == null){  
-            String loginCookieUserName = "";  
-            String loginCookiePassword = "";  
-              
+        String  userId = (String)request.getSession().getAttribute("userId");  
+        String  userName = (String)request.getSession().getAttribute("userName");
+        String  passWord = (String)request.getSession().getAttribute("passWord"); 
+        HttpSession httpSession = request.getSession();
+        if(userId == null){
             Cookie[] cookies = request.getCookies();  
             if(null!=cookies){    
-                for(Cookie cookie : cookies){    
-                    //if("/".equals(cookie.getPath())){ //getPath为null  
-                        if("loginUserName".equals(cookie.getName())){  
-                            loginCookieUserName = cookie.getValue();  
-                        }else if("loginPassword".equals(cookie.getName())){  
-                            loginCookiePassword = cookie.getValue();  
-                        }  
-                    //}  
+                for(Cookie cookie : cookies){  
+					if ("userId".equals(cookie.getName())) {
+						userId = cookie.getValue();
+					} else if ("userName".equals(cookie.getName())) {
+						userName = cookie.getValue();
+					} else if ("passWord".equals(cookie.getName())) {
+						passWord = cookie.getValue();
+					}
                 }    
-                if(!"".equals(loginCookieUserName) && !"".equals(loginCookiePassword)){
+                if(userName!=null && !userName.equals("")){
                 	User userInfo =  new User();
-                	userInfo.setUserName(loginCookieUserName);
-                    User user = userService.getUserInfo(userInfo);  
-                    if(loginCookiePassword.equals(user.getPassWord())){  
-                        request.getSession().setAttribute("loginUser", user);  
-                    }  
+                	userInfo.setUserName(userName);
+                    User user = userService.getUserInfo(userInfo);
+                    if(passWord!=null)
+                    {
+                        if(passWord.equals(user.getPassWord())){  
+                        	httpSession.setAttribute("userName", userName);
+                        	httpSession.setAttribute("userId", userId);
+                        	httpSession.setAttribute("passWord", passWord);
+//            		        Cookie cookieName=new Cookie("userName", userName);
+//            		        Cookie cookieWord=new Cookie("passWord", passWord);
+//            		        response.addCookie(cookieName);
+//            		        response.addCookie(cookieWord);
+                        } 
+                    }
+ 
                 }  
             }   
-        }  
+        }
         return true;  
     }  
+    
+	@Override
+	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
+			Object arg2, ModelAndView arg3) throws Exception {
+		// TODO Auto-generated method stub
+		return;
+	}
     
 	@Override
 	public void afterCompletion(HttpServletRequest arg0,
@@ -62,13 +79,6 @@ public class LoginInterceptor  implements HandlerInterceptor {
 		// TODO Auto-generated method stub
 		return;
 		
-	}
-
-	@Override
-	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
-			Object arg2, ModelAndView arg3) throws Exception {
-		// TODO Auto-generated method stub
-		return;
 	}
 
 

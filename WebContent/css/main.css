@@ -1948,6 +1948,7 @@ div[class*="col-"] > .form-group {
 }
 .navbar-default .navbar-toggle i {
   font-size: 21px;
+  background-color: #313131;
 }
 @media screen and (max-width: 768px) {
   .navbar-default .navbar-collapse {

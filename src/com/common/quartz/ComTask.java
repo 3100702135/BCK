@@ -4,13 +4,17 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.log4j.Logger;
+
 import com.common.service.MailService;
+import com.system.controller.UserController;
 import com.system.entity.User;
 import com.system.service.UserService;
 
 public class ComTask {
 	private static final String subject = "smtp.163.com";
 	private static final String message = "欢迎注册区块众筹！";
+	static Logger	          logger	       = Logger.getLogger(UserController.class);
 
 	@Resource(name = "mailService")
 	private MailService mailService;
@@ -24,7 +28,7 @@ public class ComTask {
 	 */
 	public void doJob() throws Exception {
 		System.out.print("定时任务开始！");
-//		sendMail();
+		sendMail();
 		System.out.print("定时任务结束！");
 	}
 	
@@ -48,6 +52,7 @@ public class ComTask {
 				System.out.print("发送邮件成功:" + userInfo.getMail());
 			}
 		} catch (Exception e) {
+			logger.debug(e.getMessage());
 			System.out.print(e.getMessage());
 		}
 		System.out.print("发送邮件结束！");

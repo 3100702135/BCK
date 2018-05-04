@@ -1,105 +1,107 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String path = request.getContextPath();
+System.out.print(path);
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
+System.out.print(basePath);
 %>
 <html lang="en">
 <head>
-	<title>BCK - Guard Every Kind Of Love</title>
+	<title>区块筹（BCCF）基于现实需求激励、去中心化、非盈利的医疗互助应用平台</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="Free landing page website template">
 	<meta name="author" content="The Develovers">
 
 	<!-- CORE CSS -->
-	<link href="<%=path%>/css/bootstrap.css" rel="stylesheet" type="text/css">
-	<link href="<%=path%>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="<%=basePath%>/css/bootstrap.css" rel="stylesheet" type="text/css">
+	<link href="<%=basePath%>/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	
 	<!-- THEME CSS -->
-	<link href="<%=path%>/css/main.css" rel="stylesheet" type="text/css">
+	<link href="<%=basePath%>/css/main.css" rel="stylesheet" type="text/css">
 	
 	<!-- GOOGLE FONTS -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CRoboto:300,400,700" rel="stylesheet">
 	
 	<!-- FAVICONS -->
-	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=path%>/ico/landee144.png">
-	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=path%>/ico/landee114.png">
-	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=path%>/ico/landee72.png">
-	<link rel="apple-touch-icon-precomposed" href="<%=path%>/ico/landee57.png">
-	<link rel="shortcut icon" href="<%=path%>/ico/favicon.ico">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=basePath%>/ico/landee144.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="<%=basePath%>/ico/landee114.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="<%=basePath%>/ico/landee72.png">
+	<link rel="apple-touch-icon-precomposed" href="<%=basePath%>/ico/landee57.png">
+	<link rel="shortcut icon" href="<%=basePath%>/ico/favicon.ico">
 </head>
 <body data-spy="scroll">
-	
 	<!-- WRAPPER -->
 	<div id="wrapper">
-
-		<!-- NAVBAR -->
-		<nav id="main-navbar" class="navbar navbar-default navbar-fixed-top">
-			<div class="container">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-nav-collapse">
-					<span class="sr-only">Toggle Navigation</span>
-					<i class="fa fa-bars"></i>
-				</button>
-				<a href="<%=path%>/system/index" class="navbar-brand">
-					<img src="<%=path%>/images/logo.png" alt="Landee Logo">
-				</a>
-				<div id="main-nav-collapse" class="collapse navbar-collapse">
-					<ul class="nav navbar-nav nav-onepage">
-						<li class="active"><a href="<%=path%>/system/index">首页</a></li>
-						<li><a href="<%=path%>/system/overview" target="view_window">白皮书</a></li>
-						<li><a href="<%=path%>/system/features">发展历程</a></li>
-						<li><a href="<%=path%>/system/team">团队介绍</a></li>
-						<li><a href="<%=path%>/system/exchange"> 社区交流</a></li>
-						<li><a href="<%=path%>/system/contact">联系我们</a></li>
-						<li id="registerOrLogin" ><a data-toggle="modal" data-target="#register" href=""><span class="glyphicon glyphicon-user"></span>登录/注册</a></li>						
-						<li class="dropdown"><a href="#" id="showUserName" class="dropdown-toggle" data-toggle="dropdown" >${param.userName} <b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="<%=path%>/#">个人中心</a></li>
-						<li><a href="<%=path%>/#">我的消息</a></li>
-						<li class="divider"></li>
-						<li><a href="<%=path%>/#">退出登录</a></li>
-					</ul></li>
-				</ul>
-			</div>
-			</div>
-		</nav>
-		<!-- END NAVBAR -->
+	<jsp:include page="../head.jsp"></jsp:include>
 
 		<!-- HERO SECTION -->
-		<section id="home" class="hero-unit-fullscreen parallax-window" data-parallax="scroll" data-image-src="<%=path%>/images/fullscreen-bg.jpg">
+		<section id="home" class="hero-unit-fullscreen parallax-window" data-parallax="scroll" data-image-src="<%=basePath%>/images/fullscreen-bg.jpg">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="hero-content">
 					<h1 class="hero-heading">白皮书</h1>
-					<p class="lead">不仅仅是一份白皮书，是爱与责任！</p>
-					<span class="onepage-links"><a href="<%=path%>/system/overview" target="view_window" class="btn btn-lg btn-primary">CHECK MORE</a></span>
+					<p class="lead">不仅仅是一份白皮书，更是爱与责任宣言！</p>
+					<span class="onepage-links"><a href="<%=basePath%>/system/overview" target="view_window" class="btn btn-lg btn-primary">点击详情</a></span>
 				</div>
 			</div>
 		</section>
 		<!-- END HERO SECTION -->
-
 		<!-- FEATURES -->
-		<section id="features">
-			<div class="container">
+		<section >
+			<div class="container" id="features">
 				<div class="section-heading">
 					<h2 class="heading">发展历程</h2>
 				</div>
 				<div class="container">
 					<div class="row feature-item">
 						<div class="col-sm-12">
-							<img src="<%=path%>/images/grouwth.png" class="img-responsive" alt="Feature">
+							<img src="<%=basePath%>/images/grouwth.png" class="img-responsive" alt="Feature">
 						</div>
 					</div>
 					<div class="row feature-item">
 						<div class="col-sm-7">
-							<h3 class="section-heading"><i class="fa fa-line-chart"></i> Evaluate Results</h3>
-							<p class="lead">Conveniently iterate fully researched synergy for customer directed convergence.</p>
-							<p>Holisticly simplify 24/365 materials through premium paradigms. Quickly procrastinate quality imperatives for low-risk high-yield e-markets. Collaboratively negotiate user-centric products and clicks-and-mortar.</p>
+							<h3 class="section-heading"><i class="fa fa-line-chart"></i>大病医疗互助的概念</h3>
+							<p class="lead">
+								大病即重大疾病，是指医治花费巨大且在较长一段时间内严重影响患者及其家庭的正常工作和生
+								活的疾病，一般包括：恶性肿瘤、严重心脑血管疾病、需要进行重大器官移植的手术、有可能造成终
+								身残疾的伤病、晚期慢性病、深度昏迷、永久性瘫痪、严重脑损伤、严重帕金森病和严重精神病等。
+								重大疾病对患者造成严重影响的同时，也给其家庭带来严重的精神和经济压力。					
+							</p>
 						</div>
 						<div class="col-sm-5">
-							<img src="<%=path%>/images/feature3.png" class="img-responsive" alt="Feature">
+							<img src="<%=basePath%>/images/feature1.png" class="img-responsive" alt="Feature">
+						</div>
+					</div>
+					<div class="row feature-item">
+						<div class="col-sm-7">
+							<h3 class="section-heading"><i class="fa fa-hospital-o"></i>区块链医疗互助原理</h3>
+							<p class="lead">
+								基于区块链的大病医疗互助，实现节点一方有难，链上八方支援。当客户发出求助信息后，客户
+								身体状况、职业信息、体检、医疗等相关信息和数据将被记录并在全网内实时广播，并得到相关交易
+								方的共同验证，确保信息真实有效。平台将求助信息发送给网络内的每一个节点，由所有节点共同验
+								证形成“共识”，从而形成数据安全、信息公开透明、无须第三方介人的创新型信任机制。资金不经
+								过受捐者，直接进入医院，便于客户直接住院治疗，真正实现一方有难，链上八方支援。						
+							</p>
+						</div>
+						<div class="col-sm-5">
+							<img src="<%=basePath%>/images/feature2.png" class="img-responsive" alt="Feature">
+						</div>
+					</div>
+					<div class="row feature-item">
+						<div class="col-sm-7">
+							<h3 class="section-heading"><i class="fa fa-user-plus"></i>区块链医疗互助前景</h3>
+							<p class="lead">
+								区块链是融合点对点传输、分布式数据存储、加密算法、共识机制等计算机技术的新型应用模式。
+								区块链系统通过共识机制实现不同节点之间建立信任、获取权益。区块链可以减少中心化网络的运营
+								和信用成本，解决物联网安全性的弱点，提高运营效率和工业资产利用率，从而提升物联网系统的价
+								值。同时，与物联网融合，有望发展出更多成熟的区块链应用，有助于拓展区块链产业规模，促进产
+								业生态完善								
+							</p>
+						</div>
+						<div class="col-sm-5">
+							<img src="<%=basePath%>/images/feature3.png" class="img-responsive" alt="Feature">
 						</div>
 					</div>
 				</div>
@@ -116,48 +118,42 @@
 				<div class="row">
 					<div class="col-md-4">
 						<div class="team-member">
-							<img src="<%=path%>/images/person1.png" class="img-responsive img-circle" alt="Person">
+							<img src="<%=basePath%>/images/person1.png" class="img-responsive img-circle" alt="Person">
 							<div class="member-info">
 								<h3 class="name">Kyle Freeman</h3>
 								<span class="title text-muted">Director</span>
 								<p class="short-bio">Dramatically harness 2.0 products and leveraged sources. Dramatically drive intermandated expertise rather than clicks-and-mortar benefits.</p>
 								<ul class="list-inline social-icons">
-									<li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#" class="dribbble-bg"><i class="fa fa-dribbble"></i></a></li>
-									<li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
-									<li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#" class="qq-bg"><i class="fa fa-qq"></i></a></li>
+									<li><a href="#" class="wechat-bg"><i class="fa fa-wechat"></i></a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="team-member">
-							<img src="<%=path%>/images/person2.png" class="img-responsive img-circle" alt="Person">
+							<img src="<%=basePath%>/images/person2.png" class="img-responsive img-circle" alt="Person">
 							<div class="member-info">
 								<h3 class="name">Samuel Collins</h3>
 								<span class="title text-muted">Senior Manager</span>
 								<p class="short-bio">Dramatically harness 2.0 products and leveraged sources. Dramatically drive intermandated expertise rather than clicks-and-mortar benefits.</p>
 								<ul class="list-inline social-icons">
-									<li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="#" class="dribbble-bg"><i class="fa fa-dribbble"></i></a></li>
-									<li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
-									<li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#" class="qq-bg"><i class="fa fa-qq"></i></a></li>
+									<li><a href="#" class="wechat-bg"><i class="fa fa-wechat"></i></a></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 					<div class="col-md-4">
 						<div class="team-member">
-							<img src="<%=path%>/images/person3.png" class="img-responsive img-circle" alt="Person">
+							<img src="<%=basePath%>/images/person3.png" class="img-responsive img-circle" alt="Person">
 							<div class="member-info">
 								<h3 class="name">Diana Douglas</h3>
 								<span class="title text-muted">Account Executive</span>
 								<p class="short-bio">Dramatically harness 2.0 products and leveraged sources. Dramatically drive intermandated expertise rather than clicks-and-mortar benefits.</p>
 								<ul class="list-inline social-icons">
-									<li><a href="<%=path%>/#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-									<li><a href="<%=path%>/#" class="dribbble-bg"><i class="fa fa-dribbble"></i></a></li>
-									<li><a href="<%=path%>/#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
-									<li><a href="<%=path%>/#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+									<li><a href="#" class="qq-bg"><i class="fa fa-qq"></i></a></li>
+									<li><a href="#" class="wechat-bg"><i class="fa fa-wechat"></i></a></li>
 								</ul>
 							</div>
 						</div>
@@ -182,7 +178,7 @@
 <!-- 							<strong class="price">$16</strong>
  -->							<span class="price-info">点击下方加入我们</span>
 						</div>
-						<a href="tencent://Message/?Uin=624709552&amp;websiteName=q-zone.qq.com&amp;Menu=yes" class="btn btn-default">JOIN IN</a>
+						<a href="tencent://Message/?Uin=301446241&amp;websiteName=q-zone.qq.com&amp;Menu=yes" class="btn btn-default">JOIN IN</a>
 						
 					</div>
 					<div class="pricing-table pricing-recommended">
@@ -193,7 +189,7 @@
 <!-- 							<strong class="price">$64</strong>
  -->							<span class="price-info">点击下方加入我们</span>
 						</div>
-						<a href="tencent://Message/?Uin=624709552&amp;websiteName=q-zone.qq.com&amp;Menu=yes" class="btn btn-primary">JOIN IN</a>
+						<a href="tencent://Message/?Uin=301446241&amp;websiteName=q-zone.qq.com&amp;Menu=yes" class="btn btn-primary">JOIN IN</a>
 					</div>
 					<div class="pricing-table">
 						<h4 class="pricing-heading">挖矿</h4>
@@ -202,7 +198,7 @@
 <!-- 							<strong class="price">$800</strong>
  -->							<span class="price-info">点击下方加入我们</span>
 						</div>
-						<a href="tencent://Message/?Uin=624709552&amp;websiteName=q-zone.qq.com&amp;Menu=yes" class="btn btn-default">JOIN IN</a>
+						<a href="tencent://Message/?Uin=301446241&amp;websiteName=q-zone.qq.com&amp;Menu=yes" class="btn btn-default">JOIN IN</a>
 					</div>
 				</div>
 			</div>
@@ -244,20 +240,20 @@
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="contact-name" class="control-label sr-only">姓名</label>
-										<input type="text" class="form-control" id="contact-name" placeholder="姓名 (必填)" required>
+										<input type="text" class="form-control" name="contact-name" id="contact-name" placeholder="姓名 (必填)" required>
 									</div>
 								</div>
 								<div class="col-sm-6">
 									<div class="form-group">
 										<label for="contact-email" class="control-label sr-only">邮箱</label>
-										<input type="email" class="form-control" id="contact-email" placeholder="邮箱号 (必填)" required>
+										<input type="email" class="form-control" name="contact-email" id="contact-email" placeholder="邮箱号 (必填)" required>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="contact-subject" class="control-label sr-only">主题</label>
 								<div class="col-sm-12">
-									<input type="text" class="form-control" id="contact-subject" placeholder="主题内容 ">
+									<input type="text" class="form-control"  name="contact-subject"  id="contact-subject" placeholder="主题内容 ">
 								</div>
 							</div>
 							<div class="form-group">
@@ -268,128 +264,29 @@
 							</div>
 							<div class="form-group">
 								<div class="col-sm-12">
-									<button type="submit" class="btn btn-primary">提交留言</button>
+									<button type="submit" onclick="sendMail()" class="btn btn-primary">提交留言</button>
 								</div>
 							</div>
-<!-- 					<pre name="code" class="html"><a href="Mailto:test@163.com?CC=test@163.com&BCC=test@163.com&Subject=Hello&Body=你好">给我发邮件</a></pre>
- -->						</form>
+						</form>
 					</div>
 				</div>
 			</div>
 		</section>
 		<!-- END CONTACT -->
 
-		<!-- FOOTER -->
-		<footer class="footer-minimal">
-			<div class="container">
-				<nav>
-					<ul class="list-unstyled list-inline margin-bottom-30px">
-						<li><a href="<%=path%>/#">About</a></li>
-						<li><a href="<%=path%>/#">Terms &amp; Condition</a></li>
-						<li><a href="<%=path%>/#">Help</a></li>
-					</ul>
-				</nav>
-				<ul class="list-inline social-icons social-icons-circle">
-					<li><a href="<%=path%>/#"><i class="fa fa-facebook"></i></a></li>
-					<li><a href="<%=path%>/#"><i class="fa fa-twitter"></i></a></li>
-					<li><a href="<%=path%>/#"><i class="fa fa-rss"></i></a></li>
-					<li><a href="<%=path%>/#"><i class="fa fa-youtube-play"></i></a></li>
-					<li><a href="<%=path%>/#"><i class="fa fa-linkedin"></i></a></li>
-				</ul>
-				<p class="copyright-text">Designed &amp; Crafted by <a href="#" target="_blank">The Develovers</a> More Informations Please Tell Us </p>
-			</div>
-		</footer>
-		<!-- END FOOTER -->
+	<jsp:include page="../footer.jsp"></jsp:include>
 
-	</div>
-	<!-- END WRAPPER -->
- <!-- 注册窗口 -->
-     <div id="register" class="modal fade" tabindex="-1">
-         <div class="modal-dialog">
-             <div class="modal-content">
-                 <div class="modal-body">
-                     <button class="close" data-dismiss="modal">
-                         <span>&times;</span>
-                     </button>
-                 </div>
-                 <div class="modal-title">
-                     <h1 class="text-center">注册</h1>
-                 </div>
-                 <div class="modal-body">
-                     <form id="register_form" class="form-group" action="">
-                             <div class="form-group">
-                                 <label for="">用户名</label>
-                                 <input id="userName" name="userName" class="form-control" type="text" placeholder="6-15位字母或数字" required>
-                             </div>
-                             <div class="form-group">
-                                 <label for="">密码</label>
-                                 <input id="passWord" name="passWord" class="form-control" type="password" placeholder="至少6位字母或数字" required>
-                             </div>
-                             <div class="form-group">
-                                 <label for="">再次输入密码</label>
-                                 <input id="passWordCopy" class="form-control" type="password" placeholder="至少6位字母或数字" required>
-                             </div>
-                             <div class="form-group">
-                                 <label for="">邮箱</label>
-                                 <input id="mail" name="mail" class="form-control" type="email" placeholder="例如:123@123.com" >
-                             </div>
-                            <div class="form-group">
-                                 <label for="">手机号</label>
-                                 <input id="tel" name="tel" class="form-control" type="tel" placeholder="例如:187........" required>
-                             </div>
-                             <div class="text-right">
-                                 <button class="btn btn-primary" type="submit" onclick="register_submit()">提交</button>
-                                 <button class="btn btn-danger" data-dismiss="modal">取消</button>
-                             </div>
-                             <a href="" data-toggle="modal" data-dismiss="modal" data-target="#login">已有账号？点我登录</a>
-                     </form>
-                 </div>
-             </div>
-         </div>
-     </div>
-     <!-- 登录窗口 -->
-     <div id="login" class="modal fade">
-         <div class="modal-dialog">
-             <div class="modal-content">
-                 <div class="modal-body">
-                     <button class="close" data-dismiss="modal">
-                         <span>&times;</span>
-                     </button>
-                 </div>
-                 <div class="modal-title">
-                     <h1 class="text-center">登录</h1>
-                 </div>
-                 <div class="modal-body">
-                     <form id="login_form" name="login_form" class="form-group" action="">
-                             <div class="form-group">
-                                 <label for="">用户名</label>
-                                 <input  name="userNameLogin" class="form-control" type="text" placeholder="用户名" required>
-                             </div>
-                             <div class="form-group">
-                                 <label for="">密码</label>
-                                 <input name="passWordLogin" class="form-control" type="password" placeholder="密码" required>
-                             </div>
-                             <div class="text-right">
-                                 <button class="btn btn-primary" type="submit" onclick="login_submit()">登录</button>
-                                 <button class="btn btn-danger" data-dismiss="modal">取消</button>
-                             </div>
-                             <a href="" data-toggle="modal" data-dismiss="modal" data-target="#register">还没有账号？点我注册</a>
-                     </form>
-                 </div>
-             </div>
-         </div>
-     </div>
 	<!-- JAVASCRIPT -->
-	<script src="<%=path%>/js/jquery-2.1.1.min.js"></script>
-	<script src="<%=path%>/js/bootstrap.min.js"></script>
-	<script src="<%=path%>/js/plugins/scrolling/jquery.scrollTo-1.4.3.1-min.js"></script>
-	<script src="<%=path%>/js/plugins/scrolling/jquery.localscroll-1.2.7-min.js"></script>
-	<script src="<%=path%>/js/plugins/parallax/parallax.min.js"></script>
-	<script src="<%=path%>/js/plugins/owl-carousel/owl.carousel.min.js"></script>
-	<script src="<%=path%>/js/landee.js"></script>
-	<script src="<%=path%>/js/bootstrap/bootstrapValidator.js"></script>
-	<script src="<%=path%>/js/bootstrap/bootstrapValidator.min.js"></script>
-	<script src="<%=path%>/js/system/index.js"></script>
+	<script src="<%=basePath%>/js/jquery-2.1.1.min.js"></script>
+	<script src="<%=basePath%>/js/bootstrap.min.js"></script>
+	<script src="<%=basePath%>/js/plugins/scrolling/jquery.scrollTo-1.4.3.1-min.js"></script>
+	<script src="<%=basePath%>/js/plugins/scrolling/jquery.localscroll-1.2.7-min.js"></script>
+	<script src="<%=basePath%>/js/plugins/parallax/parallax.min.js"></script>
+	<script src="<%=basePath%>/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+	<script src="<%=basePath%>/js/landee.js"></script>
+	<script src="<%=basePath%>/js/bootstrap/bootstrapValidator.js"></script>
+	<script src="<%=basePath%>/js/bootstrap/bootstrapValidator.min.js"></script>
+	<script src="<%=basePath%>/js/system/index.js"></script>
 	
 </body>
 

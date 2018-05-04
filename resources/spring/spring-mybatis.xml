@@ -10,17 +10,23 @@
                         http://www.springframework.org/schema/mvc    
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">  
     <!-- 自动扫描 -->  
-    <context:component-scan base-package="com.system" />  
+    <context:component-scan base-package="com.common" /> 
+    <context:component-scan base-package="com.manage" /> 
+    <context:component-scan base-package="com.system" />
     <!-- 引入配置文件 -->  
     <bean id="propertyConfigurer"    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
-        <property name="location" value="classpath:jdbc.properties" />  
+		<property name="locations">
+            <list>
+                <value>classpath:jdbc.properties</value>
+            </list>
+        </property>
     </bean>  
   
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource" >  
-        <property name="driverClassName" value="${driverClassName}" />  
-        <property name="url" value="${url}" />  
-        <property name="username" value="${username}" />  
-        <property name="password" value="${password}" />  
+        <property name="driverClassName" value="${jdbc.driverClassName}" />  
+        <property name="url" value="${jdbc.url}" />  
+        <property name="username" value="${jdbc.username}" />  
+        <property name="password" value="${jdbc.password}" />  
     </bean>  
   
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->  
@@ -50,9 +56,17 @@
     <bean id="transactionManager"  
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource" ref="dataSource" />  
-    </bean>  
-    
-	<mvc:interceptors>  
+    </bean>
+
+	<mvc:interceptors>
+		<!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->
+<!-- 		<bean class="com.common.interceptor.LoginInterceptor" /> -->
+		<mvc:interceptor>
+			<mvc:mapping path="/**" /> 
+			<!-- 定义在mvc:interceptor下面的表示是对特定的请求才进行拦截的 -->
+			<mvc:exclude-mapping path="/system/toRegister" /> 
     	<bean class="com.common.interceptor.LoginInterceptor" />  
-	</mvc:interceptors>
+		</mvc:interceptor>
+	</mvc:interceptors>     
+
 </beans>

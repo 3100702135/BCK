@@ -53,7 +53,7 @@ public class MailService {
     }
 
     /**
-     * 发送邮件
+     * 给注册者发送邮件
      *
      * @param to 接受人
      * @param subject 主题
@@ -71,4 +71,6 @@ public class MailService {
         messageHelper.setText(message, true);
         mailSender.send(mimeMessage);
     }
+    
+
 }

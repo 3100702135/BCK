@@ -5,15 +5,15 @@ $(document).ready( function() {
 	/*---------------------*/
 
 	$(window).scroll(function() {
-		if($(document).scrollTop() > 100) {
+/*		if($(document).scrollTop() > 0) {
 			$('.navbar-fixed-top').addClass('navbar-solid-color');
 		}else {
 			$('.navbar-fixed-top').removeClass('navbar-solid-color');
-		}
+		}*/
 	});
 
 	// scrollspy
-	$('body').scrollspy({ target: '#main-navbar', offset: 120});
+	$('body').scrollspy({ target: '#main-navbar', offset: 0});
 
 	// onepage scroll links
 	$('.nav-onepage, .onepage-links').localScroll({

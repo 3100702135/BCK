@@ -1,0 +1,255 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%
+String path = request.getContextPath();
+System.out.print(path);
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
+System.out.print(basePath);
+%>
+<html lang="en">
+<head>
+<title>区块筹（BCF）基于现实需求激励、去中心化、非盈利的医疗互助应用平台</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free landing page website template">
+<meta name="author" content="The Develovers">
+
+<!-- CORE CSS -->
+<link href="<%=basePath%>/css/bootstrap.css" rel="stylesheet"
+	type="text/css">
+<link href="<%=basePath%>/css/font-awesome.min.css" rel="stylesheet"
+	type="text/css">
+
+<!-- THEME CSS -->
+<link href="<%=basePath%>/css/main.css" rel="stylesheet" type="text/css">
+
+<!-- GOOGLE FONTS -->
+<link
+	href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CRoboto:300,400,700"
+	rel="stylesheet">
+
+<!-- FAVICONS -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="<%=basePath%>/ico/landee144.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="<%=basePath%>/ico/landee114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="<%=basePath%>/ico/landee72.png">
+<link rel="apple-touch-icon-precomposed"
+	href="<%=basePath%>/ico/landee57.png">
+<link rel="shortcut icon" href="<%=basePath%>/ico/favicon.ico">
+</head>
+<body data-spy="scroll">
+<div class="container">
+	<!-- WRAPPER -->
+	<div class="row">
+		<jsp:include page="../head.jsp"></jsp:include>	
+	</div>
+	  <br>
+	  <br>
+	  <br>
+	  <br>
+	<div class="row">
+		<div class="col-xs-2">
+			<p>个人中心</p>
+			<ul class="nav nav-pills nav-stacked">
+			  <li><a href="<%=basePath%>/system/userRecord" onclick="userRecord()">互助记录</a></li>
+			  <li><a href="<%=basePath%>/system/userInfo">个人信息</a></li>
+			  <li><a href="<%=basePath%>/system/userCertification">实名认证</a></li>
+			  <li><a href="<%=basePath%>/system/userMessage" onclick="userMessage()">我的消息</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-10">
+			<div class="row">
+				<ol class="breadcrumb">
+				    <li><a href="<%=basePath%>/system/userCenter">个人中心</a></li>
+				    <li class="active">互助记录</li>
+				</ol>
+			</div>
+			<div class="row">
+				<ul id="myTab" class="nav nav-tabs">
+				    <li class="active">
+				        <a href="#home" data-toggle="tab">
+				           	我的互助记录
+				        </a>
+				    </li>
+				    <li><a href="#ios" data-toggle="tab">全网记录</a></li>
+				</ul>
+				<div id="myTabContent" class="tab-content">
+				    <div class="tab-pane fade in active" id="home">
+						<table class="table">
+							  <thead>
+							    <tr>
+							      <th>项目ID</th>
+							      <th>受助人</th>
+							      <th>受助金额</th></tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <td>11324356</td>
+							      <td>Bangalore</td>
+							      <td>2000</td></tr>
+							    <tr>
+							      <td>7654321</td>
+							      <td>Mumbai</td>
+							      <td>1000</td></tr>
+							  </tbody>
+						</table>				    
+					</div>
+				    <div class="tab-pane fade" id="ios">
+						<table class="table">
+							  <thead>
+							    <tr>
+							      <th>项目ID</th>
+							      <th>受助人</th>
+							      <th>受助金额</th></tr>
+							  </thead>
+							  <tbody>
+							    <tr>
+							      <td>11324356</td>
+							      <td>Bangalore</td>
+							      <td>2000</td></tr>
+							    <tr>
+							      <td>7654321</td>
+							      <td>Mumbai</td>
+							      <td>1000</td></tr>
+							  </tbody>
+						</table>
+				    </div>
+				</div>
+				
+			</div>
+		</div>
+	</div>	
+</div>
+		
+		<!-- FOOTER -->
+		<footer class="footer-minimal">
+		<div class="container">
+			<nav>
+			<ul class="list-unstyled list-inline margin-bottom-30px">
+				<li><a href="<%=basePath%>/#">About</a></li>
+				<li><a href="<%=basePath%>/#">Terms &amp; Condition</a></li>
+				<li><a href="<%=basePath%>/#">Help</a></li>
+			</ul>
+			</nav>
+			<ul class="list-inline social-icons social-icons-circle">
+				<li><a href="<%=basePath%>/#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="<%=basePath%>/#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="<%=basePath%>/#"><i class="fa fa-rss"></i></a></li>
+				<li><a href="<%=basePath%>/#"><i class="fa fa-youtube-play"></i></a></li>
+				<li><a href="<%=basePath%>/#"><i class="fa fa-linkedin"></i></a></li>
+			</ul>
+			<p class="copyright-text">
+				Designed &amp; Crafted by <a href="#" target="_blank">The
+					Develovers</a> More Informations Please Tell Us
+			</p>
+		</div>
+		</footer>
+		<!-- END FOOTER -->
+
+
+	<!-- END WRAPPER -->
+	<!-- 注册窗口 -->
+	<div id="register" class="modal fade" tabindex="-1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+				<div class="modal-title">
+					<h1 class="text-center">注册</h1>
+				</div>
+				<div class="modal-body">
+					<form id="register_form" class="form-group" action="">
+						<div class="form-group">
+							<label for="">用户名</label> <input id="userName" name="userName"
+								class="form-control" type="text" placeholder="6-15位字母或数字"
+								required>
+						</div>
+						<div class="form-group">
+							<label for="">密码</label> <input id="passWord" name="passWord"
+								class="form-control" type="password" placeholder="至少6位字母或数字"
+								required>
+						</div>
+						<div class="form-group">
+							<label for="">再次输入密码</label> <input id="passWordCopy"
+								class="form-control" type="password" placeholder="至少6位字母或数字"
+								required>
+						</div>
+						<div class="form-group">
+							<label for="">邮箱</label> <input id="mail" name="mail"
+								class="form-control" type="email" placeholder="例如:123@123.com">
+						</div>
+						<div class="form-group">
+							<label for="">手机号</label> <input id="tel" name="tel"
+								class="form-control" type="tel" placeholder="例如:187........"
+								required>
+						</div>
+						<div class="text-right">
+							<button class="btn btn-primary" type="submit"
+								onclick="register_submit()">提交</button>
+							<button class="btn btn-danger" data-dismiss="modal">取消</button>
+						</div>
+						<a href="" data-toggle="modal" data-dismiss="modal"
+							data-target="#login">已有账号？点我登录</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 登录窗口 -->
+	<div id="login" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button class="close" data-dismiss="modal">
+						<span>&times;</span>
+					</button>
+				</div>
+				<div class="modal-title">
+					<h1 class="text-center">登录</h1>
+				</div>
+				<div class="modal-body">
+					<form id="login_form" name="login_form" class="form-group"
+						action="">
+						<div class="form-group">
+							<label for="">用户名</label> <input name="userNameLogin"
+								class="form-control" type="text" placeholder="用户名" required>
+						</div>
+						<div class="form-group">
+							<label for="">密码</label> <input name="passWordLogin"
+								class="form-control" type="password" placeholder="密码" required>
+						</div>
+						<div class="text-right">
+							<button class="btn btn-primary" type="submit"
+								onclick="login_submit()">登录</button>
+							<button class="btn btn-danger" data-dismiss="modal">取消</button>
+						</div>
+						<a href="" data-toggle="modal" data-dismiss="modal"
+							data-target="#register">还没有账号？点我注册</a>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- JAVASCRIPT -->
+	<script src="<%=basePath%>/js/jquery-2.1.1.min.js"></script>
+	<script src="<%=basePath%>/js/bootstrap.min.js"></script>
+	<script
+		src="<%=basePath%>/js/plugins/scrolling/jquery.scrollTo-1.4.3.1-min.js"></script>
+	<script
+		src="<%=basePath%>/js/plugins/scrolling/jquery.localscroll-1.2.7-min.js"></script>
+	<script src="<%=basePath%>/js/plugins/parallax/parallax.min.js"></script>
+	<script src="<%=basePath%>/js/plugins/owl-carousel/owl.carousel.min.js"></script>
+	<script src="<%=basePath%>/js/landee.js"></script>
+	<script src="<%=basePath%>/js/bootstrap/bootstrapValidator.js"></script>
+	<script src="<%=basePath%>/js/bootstrap/bootstrapValidator.min.js"></script>
+	<script src="<%=basePath%>/js/system/index.js"></script>
+
+</body>
+
+</html>
